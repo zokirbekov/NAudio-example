@@ -33,6 +33,7 @@ namespace WaveFormRendererApp
         private void BackgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             C.ToDataGridView(dataGridViewMul);
+            buttonSpectro.Enabled = true;
         }
 
         private void BackgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -83,6 +84,11 @@ namespace WaveFormRendererApp
         private void dataGridViewMul_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             paintToChart(C[e.RowIndex]);   
+        }
+
+        private void buttonSpectro_Click(object sender, EventArgs e)
+        {
+            new SpectrogramForm(C).Show();
         }
     }
 }
